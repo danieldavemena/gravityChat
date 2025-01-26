@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "173138346508",
+    "project_id": "gravity-b1648",
+    "storage_bucket": "gravity-b1648.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173138346508:android:55bf16af2acf49bf39e429",
+        "android_client_info": {
+          "package_name": "com.example.flutterplayground"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-dmRFgzTvzCncELgKGvwvq3j8HySZ62c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
