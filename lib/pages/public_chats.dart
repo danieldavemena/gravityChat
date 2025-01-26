@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterplayground/services/firestore.dart';
 
 class PublicChats extends StatefulWidget {
   const PublicChats({super.key});
@@ -9,18 +8,13 @@ class PublicChats extends StatefulWidget {
 }
 
 class _PublicChatsState extends State<PublicChats> {
-  final firestore = Firestore();
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: StreamBuilder(
-            stream: firestore.publicChat(), 
-            builder: (context, snapshot) {
-              return 
-            }
+          child: Container(
+            color: Colors.amber,
           )
         ),
         Container(
