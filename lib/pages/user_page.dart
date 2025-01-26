@@ -44,7 +44,7 @@ class _UserPageState extends State<UserPage> {
     setState(() {
       page = Container();
       topWidget = Container();
-      titleSize = MediaQuery.of(context).size.height * 0.83;
+      titleSize = MediaQuery.of(context).size.height * 0.80;
     });
   }
 
@@ -55,7 +55,7 @@ class _UserPageState extends State<UserPage> {
       body: Column(
         children: [
           AnimatedContainer(
-            duration: Duration(milliseconds: 300),
+            duration: Duration(milliseconds: 200),
             curve: Curves.easeOut,
             height: titleSize,
             padding: EdgeInsets.all(35),
