@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterplayground/pages/public_chats.dart';
+import 'package:flutterplayground/services/auth.dart';
 import 'package:flutterplayground/utils/navigation_item.dart';
 import 'package:flutterplayground/utils/title_bar.dart';
 
@@ -12,6 +13,8 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   
+  final Auth _auth = Auth();
+
   double titleSize = 150;
   Widget topWidget = TitleBar(title: "GRAVITY",);
   Widget page = Container();

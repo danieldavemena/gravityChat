@@ -20,4 +20,8 @@ class Auth {
       throw Exception(ex.code);
     }
   }
+
+  User? getUser() {
+    return _auth.currentUser;
+  }
 }
