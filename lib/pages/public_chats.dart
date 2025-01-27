@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterplayground/services/firestore.dart';
 
 class PublicChats extends StatefulWidget {
   const PublicChats({super.key});
@@ -8,41 +9,45 @@ class PublicChats extends StatefulWidget {
 }
 
 class _PublicChatsState extends State<PublicChats> {
+  final Firestore _firestore = Firestore();
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: Container(
-            color: Colors.amber,
-          )
-        ),
+            child: StreamBuilder(
+                stream: _firestore.publicChat(),
+                builder: (context, snapshot) {
+                  return ListView();
+                })),
         Container(
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    )
+            padding: EdgeInsets.all(10),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8))),
                   ),
                 ),
-              ),
-              SizedBox(width: 10,),
-              Container(
-                height: 57,
-                width: 60,
-                decoration: BoxDecoration(
-                  color: Colors.green[300],
-                  borderRadius: BorderRadius.circular(8)
+                SizedBox(
+                  width: 10,
                 ),
-                child: Icon(Icons.send, color: Colors.white,),
-              )
-            ],
-          )
-        )
+                Container(
+                  height: 57,
+                  width: 60,
+                  decoration: BoxDecoration(
+                      color: Colors.green[300],
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
+                )
+              ],
+            ))
       ],
     );
   }
