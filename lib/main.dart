@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterplayground/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutterplayground/pages/public_chats.dart';
 import 'firebase_options.dart';
 
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.amber),
       routes: {
         '/home': (context) => Homepage(),
+        '/public': (context) => PublicChats()
       },
     );
   }

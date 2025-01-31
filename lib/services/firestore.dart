@@ -8,4 +8,14 @@ class Firestore {
     return firestore.collection("publicChat").orderBy("timestamp", descending: false).snapshots();
   }
 
+  void sendMessage(String message, userID) {
+      Map <String, dynamic> data = {
+        "message" : message,
+        "userID" : userID,
+        "timestamp": Timestamp.now()
+      };
+
+    firestore.collection("publicChat").add(data);
+  }
+
 }
