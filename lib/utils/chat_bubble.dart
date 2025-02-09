@@ -13,25 +13,28 @@ class ChatBubble extends StatelessWidget {
       mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Column(
-          crossAxisAlignment: isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Text(message, textAlign: isUser ? TextAlign.end : TextAlign.start,),
-              constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.53
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 12),
+          child: Column(
+            crossAxisAlignment: isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.all(12),
+                child: Text(message, textAlign: isUser ? TextAlign.end : TextAlign.start,),
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.53
+                ),
+                decoration: BoxDecoration(
+                  boxShadow: List.filled(2, BoxShadow(color: const Color.fromARGB(46, 0, 0, 0), offset: Offset(0, 3), blurRadius: 4 )),
+                  color: isUser ? Colors.green[200] : Colors.grey[300],
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
-              decoration: BoxDecoration(
-                boxShadow: List.filled(2, BoxShadow(color: const Color.fromARGB(46, 0, 0, 0), offset: Offset(0, 3), blurRadius: 4 )),
-                color: isUser ? Colors.green[300] : Colors.grey[300],
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            SizedBox(height: 5,),
-            Text(user, style: TextStyle(fontSize: 10, color: Colors.grey[300]),),
-            SizedBox(height: 10,)
-          ],
+              SizedBox(height: 5,),
+              Text(user, style: TextStyle(fontSize: 10, color: Colors.grey[300]),),
+              SizedBox(height: 10,)
+            ],
+          ),
         ),
       ],
     );

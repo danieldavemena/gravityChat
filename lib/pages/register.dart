@@ -41,7 +41,12 @@ class _RegisterState extends State<Register> {
                 SizedBox(height: 10,),
                 InputWidget(hintText: "Password", obscureText: true, controller: password),
                 SizedBox(height: 20,),
-                Authbutton(label: "Register", onTap: () => register())
+                Authbutton(label: "Register", onTap: () => register()),
+                SizedBox(height: 10,),
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, '/login'),
+                  child: Text("Go to Login"),
+                )
               ],
             ),
           ),

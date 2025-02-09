@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterplayground/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutterplayground/pages/login.dart';
 import 'package:flutterplayground/pages/public_chats.dart';
+import 'package:flutterplayground/pages/register.dart';
 import 'firebase_options.dart';
 
 
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.amber),
       routes: {
         '/home': (context) => Homepage(),
-        '/public': (context) => PublicChats()
+        '/public': (context) => PublicChats(),
+        '/register': (context) => Register(),
+        '/login': (context) => Login()
       },
     );
   }

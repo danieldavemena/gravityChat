@@ -27,17 +27,26 @@ class _MessageBoxState extends State<MessageBox> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.green[300],
+        boxShadow: [BoxShadow(color: const Color.fromARGB(29, 0, 0, 0), offset: Offset(0, -3), blurRadius: 5)],
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
+      ),
       height: 80,
       width: double.infinity,
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(14),
       child: Row(
         children: [
           Expanded(
             child: TextField(
               controller: _userMessage,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30))),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(style: BorderStyle.none, width: 0),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)))
+                )
             ),
           ),
           SizedBox(
@@ -50,11 +59,11 @@ class _MessageBoxState extends State<MessageBox> {
               height: 57,
               width: 60,
               decoration: BoxDecoration(
-                  color: Colors.green[300],
-                  borderRadius: BorderRadius.circular(15)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(30), bottomRight: Radius.circular(30))),
               child: Icon(
                 Icons.send,
-                color: Colors.white,
+                color: Colors.green[300],
               ),
             ),
           )

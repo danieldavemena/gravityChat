@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class Auth {
   final _auth = FirebaseAuth.instance;
@@ -19,6 +20,10 @@ class Auth {
     } on FirebaseAuthException catch (ex) {
       throw Exception(ex.code);
     }
+  }
+
+  void signOut() {
+    _auth.signOut();
   }
 
   User? getUser() {

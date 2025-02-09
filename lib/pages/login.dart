@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterplayground/pages/register.dart';
 import 'package:flutterplayground/services/auth.dart';
 import 'package:flutterplayground/utils/authbutton.dart';
 import 'package:flutterplayground/utils/input_widget.dart';
@@ -43,7 +44,12 @@ class Login extends StatelessWidget {
                 SizedBox(height: 10,),
                 InputWidget(hintText: "Password", obscureText: true, controller: password),
                 SizedBox(height: 20,),
-                Authbutton(label: "Login", onTap: () => login(context))
+                Authbutton(label: "Login", onTap: () => login(context)),
+                SizedBox(height: 10,),
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, '/register'),
+                  child: Text("Register now"),
+                )
               ],
             ),
           ),
