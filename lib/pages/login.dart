@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterplayground/pages/register.dart';
 import 'package:flutterplayground/services/auth.dart';
 import 'package:flutterplayground/utils/authbutton.dart';
 import 'package:flutterplayground/utils/input_widget.dart';
@@ -33,7 +32,8 @@ class Login extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Padding(
+          child: Container(
+            color: Colors.green[300],
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

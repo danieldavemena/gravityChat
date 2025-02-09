@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class Auth {
   final _auth = FirebaseAuth.instance;
@@ -13,9 +12,10 @@ class Auth {
     }
   }
 
-  Future<UserCredential> register(String email, password) async {
+  Future<UserCredential> register(String username, email, password) async {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      _auth.currentUser!.updateDisplayName(username);
       return userCredential;
     } on FirebaseAuthException catch (ex) {
       throw Exception(ex.code);

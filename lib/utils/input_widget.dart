@@ -16,8 +16,14 @@ class InputWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
         hintText: hintText,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
+        hintStyle: TextStyle(color: Colors.grey),
+        border: OutlineInputBorder(
+                  borderSide: BorderSide(style: BorderStyle.none, width: 0),
+                  borderRadius: BorderRadius.circular(30)
+                )
       ),
       obscureText: obscureText,
       controller: controller,

@@ -58,7 +58,7 @@ class _PublicChatsState extends State<PublicChats> {
                               var doc = data[index];
                               bool isUser = false;
                     
-                              if (doc["userID"] == _auth.getUser()!.email) {
+                              if (doc["userID"] == _auth.getUser()!.displayName) {
                                 isUser = true;
                               }
                     

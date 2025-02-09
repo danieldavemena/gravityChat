@@ -31,7 +31,7 @@ class ChatBubble extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 5,),
-              Text(user, style: TextStyle(fontSize: 10, color: Colors.grey[300]),),
+              Text(user, style: TextStyle(fontSize: 10, color: const Color.fromARGB(255, 134, 134, 134)),),
               SizedBox(height: 10,)
             ],
           ),

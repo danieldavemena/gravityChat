@@ -18,7 +18,7 @@ class _MessageBoxState extends State<MessageBox> {
 
   tangina() {
     if (_userMessage.text.isNotEmpty) {
-      _firestore.sendMessage(_userMessage.text, _auth.getUser()!.email);
+      _firestore.sendMessage(_userMessage.text, _auth.getUser()!.displayName);
     } 
 
     _userMessage.clear();
