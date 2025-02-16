@@ -20,10 +20,13 @@ class Authbutton extends StatelessWidget {
         child: Text(
           label,
           textAlign: TextAlign.center,
+          style: TextStyle(
+            
+          )
         ),
         decoration: BoxDecoration(
-          color: Colors.grey[500],
-          borderRadius: BorderRadius.circular(10)
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30)
         ),
       ),
     );
