@@ -6,11 +6,10 @@ import 'package:flutterplayground/pages/public_chats.dart';
 import 'package:flutterplayground/pages/register.dart';
 import 'firebase_options.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.android);
-  return(runApp(const MyApp()));
+  return (runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,9 +21,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home',
       theme: ThemeData(primarySwatch: Colors.amber),
       routes: {
-        '/home': (context) => Homepage(),
-        '/public': (context) => PublicChats(),
-        '/register': (context) => Register(),
+        '/home': (context) => const Homepage(),
+        '/public': (context) => const PublicChats(),
+        '/register': (context) => const Register(),
         '/login': (context) => Login()
       },
     );

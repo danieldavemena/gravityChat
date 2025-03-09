@@ -15,15 +15,14 @@ class _AuthGateState extends State<AuthGate> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(), 
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return UserPage();
-          } else {
-            return Login();
-          }
-        } 
-      ),
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return const UserPage();
+            } else {
+              return Login();
+            }
+          }),
     );
   }
 }

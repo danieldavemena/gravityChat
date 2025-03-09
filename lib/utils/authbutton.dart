@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 class Authbutton extends StatelessWidget {
   final String label;
   final Function()? onTap;
-  
-  const Authbutton({
-    required this.label,
-    required this.onTap,
-    super.key
-  });
+
+  const Authbutton({required this.label, required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +12,10 @@ class Authbutton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(20),
-        child: Text(
-          label,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            
-          )
-        ),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30)
-        ),
+            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+        child: Text(label, textAlign: TextAlign.center, style: TextStyle()),
       ),
     );
   }

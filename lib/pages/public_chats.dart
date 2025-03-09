@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutterplayground/services/auth.dart';
 import 'package:flutterplayground/services/firestore.dart';
@@ -14,7 +13,6 @@ class PublicChats extends StatefulWidget {
 }
 
 class _PublicChatsState extends State<PublicChats> {
-
   final _firestore = Firestore();
   final _auth = Auth();
 
@@ -22,61 +20,73 @@ class _PublicChatsState extends State<PublicChats> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green[300],
-    
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          SizedBox(height: 30,),
-          Container(
+          const SizedBox(
+            height: 30,
+          ),
+          SizedBox(
             height: 80,
-            child: Text("PUBLIC CHATROOM", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 33), textAlign: TextAlign.center,),
+            child: const Text(
+              "PUBLIC CHATROOM",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 33),
+              textAlign: TextAlign.center,
+            ),
           ),
           Expanded(
             child: Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 20),
-              decoration: BoxDecoration(
-                boxShadow: [BoxShadow(color: const Color.fromARGB(55, 0, 0, 0), offset: Offset(0, -5), blurRadius: 7)],
-                color: const Color.fromARGB(255, 241, 240, 240),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
-              ),
+              padding: const EdgeInsets.only(top: 20),
+              decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color.fromARGB(55, 0, 0, 0),
+                        offset: Offset(0, -5),
+                        blurRadius: 7)
+                  ],
+                  color: Color.fromARGB(255, 241, 240, 240),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30))),
               child: Column(
                 children: [
                   Expanded(
-                    child: StreamBuilder(
-                      stream: _firestore.publicChat(), 
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
-                         return Container();
-                        } else if (snapshot.hasData) {
-                          var data = snapshot.data!.docs;
-                    
-                          return ListView.builder(
-                            itemCount: data.length,
-                            itemBuilder: (context, index) {
-                              var doc = data[index];
-                              bool isUser = false;
-                    
-                              if (doc["userID"] == _auth.getUser()!.displayName) {
-                                isUser = true;
-                              }
-                    
-                              return ChatBubble(message: doc['message'], isUser: isUser, user: doc['userID']);
-                    
-                                      
+                      child: StreamBuilder(
+                          stream: _firestore.publicChat(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasError) {
+                              return Container();
+                            } else if (snapshot.hasData) {
+                              var data = snapshot.data!.docs;
+
+                              return ListView.builder(
+                                  itemCount: data.length,
+                                  itemBuilder: (context, index) {
+                                    var doc = data[index];
+                                    bool isUser = false;
+
+                                    if (doc["userID"] ==
+                                        _auth.getUser()!.displayName) {
+                                      isUser = true;
+                                    }
+
+                                    return ChatBubble(
+                                        message: doc['message'],
+                                        isUser: isUser,
+                                        user: doc['userID']);
+                                  });
+                            } else {
+                              return const Center(
+                                child: Text("Loading..."),
+                              );
                             }
-                          );
-                        } else {
-                          return Center(
-                            child: Text("Loading..."),
-                        );
-                        }
-                        
-                      }
-                    )
-                  ),
-                  MessageBox()
+                          })),
+                  const MessageBox()
                 ],
               ),
             ),
